@@ -1,0 +1,31 @@
+<html>
+<head>
+<script>
+function doIt(i) {
+var idInt = setInterval(function() {
+if (i <= 5) {
+document.getElementById("siteTime").style.color = "red";
+}
+else{
+document.getElementById("siteTime").style.color = "black";
+}
+document.getElementById("siteTime").innerHTML = i;
+if ( i == 0) {
+clearInterval(idInt);
+alert("Time is out!!!");
+document.getElementByTagName("p").innerHTML = "You are late";
+}
+i = i - 1;
+}, 1000);
+}
+</script>
+</head>
+<body onload = "doIt({{t}})">
+<p>{{player}}</p>
+<p style="font-weight:bold;">Time left: <span id="siteTime"></span></p>
+<form action = "/word" method = 'post'>
+<input type = "text" name = "time" placeholder = "Time">
+<button>{{words[i]}}</button>
+</form>
+</body>
+</html>
